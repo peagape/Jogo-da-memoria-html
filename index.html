@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <!-- ... outros cabeçalhos ... -->
-    <title>Jogo da Memória</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+    <title>Jogo da Memória</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- ... -->
+    <link rel="stylesheet" href="styles.css">
 
+</head>
 <body>
+    <div id="gameInfo">
+        <h1>Jogo da Memória 🐰</h1>
+        <p>Como Jogar: Vire duas cartas por vez para tentar encontrar pares de emojis iguais. Encontre todos os pares para vencer o jogo!</p>
+    </div>
     <div id="gameBoard"></div>
+    <div id="winMessage" style="display: none;">
+        <h2>Parabéns! Você venceu!</h2>
+        <button id="restartButton">Jogar Novamente</button>
+    </div>
     <audio id="flipSound" src="sounds/click.mp3"></audio>
     <audio id="matchSound" src="sounds/finish2.mp3"></audio>
     <audio id="mismatchSound" src="sounds/winer.mp3"></audio>
     <script src="script.js"></script>
+
+    <p>Desenvolvido por: <a href="https://github.com/peagape" target="_blank">Flávio (Peagape)</a></p>
 </body>
 </html>

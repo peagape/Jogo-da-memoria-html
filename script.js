@@ -50,8 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
             card2.removeEventListener('click', flipCard);
             card1.classList.add('matched');
             card2.classList.add('matched');
-            
-            // Adicionar som para combinação correta
             document.getElementById('matchSound').play();
         } else {
             lockBoard = true;
@@ -61,8 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 card1.textContent = '';
                 card2.textContent = '';
                 lockBoard = false;
-                
-                // Adicionar som para combinação errada
                 document.getElementById('mismatchSound').play();
             }, 1000);
         }
@@ -70,15 +66,23 @@ document.addEventListener('DOMContentLoaded', () => {
         flippedCards = [];
         if (document.querySelectorAll('.matched').length === cards.length) {
             setTimeout(() => {
-                alert('Parabéns! Você venceu o jogo!');
-                // Pode adicionar um som de vitória aqui também, se quiser
-            }, 100);
+                const winMessage = document.getElementById('winMessage');
+                winMessage.style.display = 'block';
+                
+                document.getElementById('restartButton').addEventListener('click', restartGame);
+            }, 1000);
         }
+    }
 
+    function restartGame() {
+        // Limpa o tabuleiro e recria o jogo
+        const gameBoard = document.getElementById('gameBoard');
+        gameBoard.innerHTML = '';
+        cards = [];
         flippedCards = [];
-        if (document.querySelectorAll('.matched').length === cards.length) {
-            setTimeout(() => alert('Parabéns! Você venceu o jogo!'), 100);
-        }
+        lockBoard = false;
+        document.getElementById('winMessage').style.display = 'none';
+        createBoard();
     }
 
     createBoard();
